@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{fullName}}</h2>
+		</div>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					firstName: 'kobe',
+					lastName: 'braynt'
+				},
+				computed: {
+					// 计算属性一般是没有set方法,只读属性
+					fullName: {
+						set: function(newValue) {
+							console.log(newValue);
+						},
+						get: function() {
+							return this.firstName + ' ' + this.lastName
+						}
+					},
+					// 简洁写法
+					fullName: function() {
+						return this.firstName + ' ' + this.lastName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
