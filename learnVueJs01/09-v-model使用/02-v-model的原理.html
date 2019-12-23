@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg">
+			{{msg}}
+			
+			<input type="text" @input="valueChange" :value="msg">
+		</div>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					msg: 'ni hao a'
+				},
+				methods: {
+					valueChange(e) {
+						this.msg = e.target.value
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

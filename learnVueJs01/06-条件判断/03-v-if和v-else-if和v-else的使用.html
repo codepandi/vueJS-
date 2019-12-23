@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{result}}</h2>
+			<h2 v-if="score >= 90">dadah2</h2>
+			<h1 v-else-if="score >= 80">isShow False</h1>
+			<h1 v-else>isShow False</h1>
+		</div>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					score: 90
+				},
+				computed: {
+					result() {
+						let showMessage = '';
+						if(this.score >= 90) {
+							showMessage = '优秀'
+						} else if(this.score >= 80) {
+							showMessage = '良好'
+						} else {
+							showMessage = 'bujige'
+						}
+						return showMessage
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

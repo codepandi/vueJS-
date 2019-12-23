@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 在遍历的过程中,没有使用索引值 -->
+			<ul>
+				<li v-for="item in names">{{item}}</li>
+			</ul>
+			
+			<!-- 在遍历的过程中,获取索引值 -->
+			<ul>
+				<li v-for="(item, index) in names">{{index + 1}}-{{item}}</li>
+			</ul>
+		</div>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					names:['pan', 'kobe', 'jams', 'curry']
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -5,6 +5,12 @@
 		<title></title>
 	</head>
 	<body>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		
 		<script type="text/javascript">
 			// ES5中的var是没有块级作用域的(if/for)
 			// ES6中的let是有块级作用域的(if/for)
@@ -20,6 +26,22 @@
 				var name = "whot"
 			}
 			console.log(name);
+			var btns = document.querySelectorAll("button");
+			// ES5中使用闭包
+			for(var i = 0; i < btns.length; i++) {
+				(function(i) {
+					btns[i].addEventListener("click", function() {
+						console.log("第" + i);
+					})
+				})(i)
+			}
+			
+			// ES6中有块级作用域
+			for(let j = 0; j < btns.length; j++) {
+				btns[j].addEventListener("click", function() {
+					console.log("jj" + j);
+				})
+			}
 		</script>
 	</body>
 </html>

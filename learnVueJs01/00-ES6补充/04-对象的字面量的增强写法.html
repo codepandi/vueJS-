@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// const obj = new Object()
+			// const obj = {
+			// 	name: 'pan',
+			// 	age: 18,
+			// 	run: function() {
+			// 		console.log(111);
+			// 	},
+			// 	eat: function() {
+			// 		console.log(222);
+			// 	}
+			// }
+			
+			// 1.属性的增强写法
+			const name = 'pan'
+			const age = 18
+			const height = 188
+			
+			// ES5
+			const obj = {
+				name: name,
+				age: age,
+				height: height
+			}
+			
+			// ES6
+			const obj1 = {
+				name,
+				age,
+				height
+			}
+			
+			console.log(obj,obj1);
+			
+			// 2.函数的增强写法
+			const obj2 = {
+				run() {
+					console.log('111');
+				},
+				eat() {
+					console.log('222');
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>
