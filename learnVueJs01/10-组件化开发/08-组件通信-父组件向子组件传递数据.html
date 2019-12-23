@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn :cmovies="movies" :cmsg="msg"></cpn>
+			<cpn :cmsg="msg"></cpn>
+			<cpn :cmovies="movies"></cpn>
+		</div>
+		
+		<template id="cpn">
+			<div>
+				<ul>
+					<li v-for="item in cmovies">{{item}}</li>
+				</ul>
+				<h2>{{cmsg}}</h2>
+			</div>
+		</template>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 父传子:props
+			const cpn = {
+				template: '#cpn',
+				// props: ['cmovies', 'cmsg']
+				props: {
+					// 1.类型限制
+					// cmovies: Array,
+					// cmsg: String,
+					
+					// 2.提供默认值,以及必传值
+					cmsg: {
+						type: String,
+						default: 'hello world',
+						required: true
+					},
+					cmovies: {
+						type: Array,
+						// default: [] // vue2.5.3以下
+						default() {
+							return []
+						}
+					},
+					
+					
+					// 基础的类型检查,(null 匹配任何类型)
+					propA: Number,
+					
+					// 多个可能的类型
+					propB: [String, Number],
+					
+					// 必填的字符串
+					propC: {
+						type: String,
+						required: true
+					},
+					
+					// 带有默认值的数字
+					propD: {
+						type: Number,
+						default: 100
+					},
+					
+					// 带有默认值的对象
+					propE: {
+						type: Object,
+						default() {
+							return {
+								msg: 'hello'
+							}
+						}
+					},
+					
+					// 自定义验证函数
+					propF: {
+						validator(value) {
+							return ['success', 'warning', 'danger'],indexOf(value) !== -1
+						}
+					}
+				}
+			}
+
+			const app = new Vue({
+				el: '#app',
+				data: {
+					msg: 'ni hao a',
+					movies: ['海网', '海贼王', '海克斯科技']
+				},
+				components: {
+					cpn
+				}
+			})
+		</script>
+	</body>
+</html>
