@@ -62,5 +62,28 @@
 	注册组件：Vue.component()注册组件
 	使用组件：Vue实例的作用范围内使用组件
 	
+### slot
+	组件的插槽是为了让我们封装的组件更加具有扩展性
+
+### 作用域插槽
+	父组件替换插槽的标签，但是内容由子组件来提供
+
+### export
+	export default 在同一个模块中，不允许同时存在多个
+	
+## Webpack
+### 什么是Webpack
+	从本质上讲，webpack是一个现代的JavaScript应用的静态模块打包工具
+	npm install webpack@3.6.0 -g
+	
+	webpack ./src/main.js ./dist/bundle.js
+	
+### 开发时依赖/运行时依赖
+	webpack install webpack@3.6.0 --save-dev
+	
+### 安装style-loader/css-loader/less-loader依赖
+	npm install style-loader --save-dev
+	npm install --save-dev css-loader
+	npm install --save-dev less-loader less
 
 	
