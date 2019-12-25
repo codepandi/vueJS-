@@ -85,5 +85,13 @@
 	npm install style-loader --save-dev
 	npm install --save-dev css-loader
 	npm install --save-dev less-loader less
+### 安装图片文件依赖
+	npm install url-loader --save-dev
+	npm install file-loader --save-dev
 
+### 安装Babel依赖
+	npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+
+### 安装Vue依赖
+	npm install vue-loader vue-template-compiler --save-dev
 	

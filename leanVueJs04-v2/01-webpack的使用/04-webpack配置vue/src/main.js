@@ -14,3 +14,16 @@ require('./css/normal.css')
 // 4.依赖less文件
 require('./css/special.less')
 document.write("<h2>Hello world</h2>")
+
+// 5.使用vue进行开发
+import Vue from 'vue'
+// import App from './vue/app'
+import App from './vue/App.vue'
+
+new Vue({
+	el: '#app',
+	template: '<App></App>',
+	components: {
+		App
+	}
+})
