@@ -94,4 +94,10 @@
 
 ### 安装Vue依赖
 	npm install vue-loader vue-template-compiler --save-dev
+
+### 安装HtmlWebpackPlugin依赖
+	npm install html-webpack-plugin --save-dev
+
+### 安装js压缩依赖
+	npm install uglifyjs-webpack-plugin@1.1.1 --save-dev
 	
