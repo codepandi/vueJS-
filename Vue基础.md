@@ -101,3 +101,6 @@
 ### 安装js压缩依赖
 	npm install uglifyjs-webpack-plugin@1.1.1 --save-dev
 	
+### 搭建本地框架
+	npm install webpack-dev-server@2.9.3 --save-dev
+	
