@@ -104,3 +104,7 @@
 ### 搭建本地框架
 	npm install webpack-dev-server@2.9.3 --save-dev
 	
+### 项目初始化
+	vue init webpack vuecli2test
+	
+	
