@@ -107,4 +107,17 @@
 ### 项目初始化
 	vue init webpack vuecli2test
 	
-	
+### dist文件内容
+	app.js       当前应用程序开发的所有代码（业务代码）
+	vendor.js    提供商第三方（vue、vue-router、axios、bs）
+	manifest.js  为了打包的代码做底层支撑
+
+### 参数的传递方式
+#### params的类型
+	配置路由格式： /router/:id
+	传递的方式： 在path后面跟上对应的值
+	传递后形成的路径： /router/123, /router/abc
+#### query的类型
+	配置路由格式： /router/,也就是普通配置
+	传递的方式： 对象中使用query的key作为传递方式
+	传递后形成的路径： /router?id=123, /router?id=abc
