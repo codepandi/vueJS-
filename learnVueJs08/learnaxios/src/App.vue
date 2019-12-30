@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <div>{{result}}</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import axios from 'axios'
 
 export default {
   name: 'App',
+	data() {
+		return {
+			result: ''
+		}
+	}
+	created() {
+		axios({
+			url: 'http://httpbin.org/',
+		}).then(res => {
+			console.log(res);
+			this.result = res
+		})
+	},
   components: {
-    HelloWorld
+    
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
