@@ -121,3 +121,55 @@
 	配置路由格式： /router/,也就是普通配置
 	传递的方式： 对象中使用query的key作为传递方式
 	传递后形成的路径： /router?id=123, /router?id=abc
+	
+### 删除node_modules
+	rimraf node_modules
+	
+## Vuex
+	集中式存储管理，状态管理模式
+
+### 管理什么状态
+	比如用户的登录状态，用户名称/头像/地理位置信息
+	比如商品的收藏，购物车中的物品
+	这些状态信息，我们都可以放在统一的地方，对它进行保存和管理，而且他们还是响应式的
+	
+### 安装Vuex
+	npm install vuex --save
+
+### vuex-state
+	单一状态树
+
+### vuex-getters
+	类似于computed
+	
+### vuex-mutation
+	vuex的store状态的更新唯一方式：提交mutation
+	mutation主要包括两部分：
+	字符串的事件类型(type)
+	一个回调函数(handler)，该回调函数的第一个参数就是state
+	
+### vuex-active
+	Action类似于Mutation，但是是用来替代Mutation进行异步操作的
+	
+## Vue-devtools
+	https://github.com/arcliang/Vue-Devtools-
+	
+## 网络请求模块的选择-axios
+### 支持多种请求方式
+	axios(config)
+	axios.request(config)
+	axios.get(url[, config])
+	axios.delete(url[, config])
+	axios.head(url[, config])
+	axios.post(url[, data[, config]])
+	axios.put(url[, data[, config]])
+	axios.patch(url[, data[, config]])
+	
+### 常见的配置选项
+	请求地址
+	请求类型
+	请求根路径
+	请求前的数据处理
+	请求后的数据处理
+	自定义的请求头
+	URL查询对象

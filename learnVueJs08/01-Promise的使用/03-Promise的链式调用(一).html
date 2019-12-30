@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			new Promise((resolve, reject) => {
+				
+				// 第一次网络请求的代码
+				setTimeout(() => {
+					resolve()
+				}, 1000)
+			}).then(() => {
+				// 第一次处理的代码
+				console.log('Hello World');
+				
+				return new Promise((resolve, reject) => {
+					// 第二次网络请求的代码
+					setTimeout(() => {
+						resolve()
+					}, 1000)
+				})
+			}).then(() => {
+				// 第二次处理的代码
+				console.log('Hello VueJs');
+				
+				return new Promise((resolve, reject) => {
+					// 第三次网络请求的代码
+					setTimeout(() => {
+						resolve()
+					}, 1000)
+				})
+			}).then(() => {
+				// 第三次处理的代码
+				console.log('Hello Ptyhon');
+			})
+			
+		</script>
+	</body>
+</html>

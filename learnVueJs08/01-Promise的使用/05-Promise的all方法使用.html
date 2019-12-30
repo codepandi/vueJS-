@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 请求一，请求二， 需求本身依赖两个请求
+			// Promise.all([
+			// 	new Promise((resolve, reject) => {
+			// 		$ajax({
+			// 			url: '',
+			// 			success() {
+			// 				resolve(data)
+			// 			} 
+			// 		})
+			// 	}),
+			// 	new Promise((resolve, reject) => {
+			// 		$ajax({
+			// 			url: '',
+			// 			success() {
+			// 				resolve(data)
+			// 			}
+			// 		})
+			// 	})
+			// ]).then(results => {
+			// 	results[0]
+			// 	results[1]
+			// })
+			
+			Promise.all([
+				new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve('result1')
+					}, 2000)
+				}),
+				new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve('result2')
+					}, 1000)
+				})
+			]).then(results => {
+				console.log(results);
+				console.log(results[0]);
+				console.log(results[1]);
+			})
+			
+			
+		</script>
+	</body>
+</html>

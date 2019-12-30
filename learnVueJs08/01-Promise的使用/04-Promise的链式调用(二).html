@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 第一种 */
+			// wrapped into
+			// 网络请求：aaa -> 自己处理（10行）
+			// 处理：aaa 111 -> 自己处理（10行）
+			// 处理：aaa 111 222 -> 自己处理（10行）
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		resolve('aaa')
+			// 	}, 1000)
+			// }).then(res => {
+			// 	console.log(res, '第一层的10行处理代码');
+				
+			// 	return new Promise((resolve) => {
+			// 		resolve(res + '111')
+			// 	})
+			// }).then(res => {
+			// 	console.log(res, '第二层的10行处理代码');
+				
+			// 	return new Promise((resolve) => {
+			// 		resolve(res + '222')
+			// 	})
+			// }).then(res => {
+			// 	console.log(res, '第三层的10行处理代码');
+			// })
+			
+			/* 第二种 */
+			// new Promise(resolve => resolve(结果)) 简写
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		resolve('aaa')
+			// 	}, 1000)
+			// }).then(res => {
+			// 	console.log(res, '第一层的10行处理代码');
+				
+			// 	return Promise.resolve(res + '111');
+			// }).then(res => {
+			// 	console.log(res, '第二层的10行处理代码');
+				
+			// 	return Promise.resolve(res + '222')
+			// }).then(res => {
+			// 	console.log(res, '第三层的10行处理代码');
+			// })
+			
+			
+			/* 第三种 */
+			// 省略掉promise.resolve
+			new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve('aaa')
+				}, 1000)
+			}).then(res => {
+				console.log(res, '第一层的10行处理代码');
+				
+				return res + '111';
+			}).then(res => {
+				console.log(res, '第二层的10行处理代码');
+				
+				return res + '222';
+			}).then(res => {
+				console.log(res, '第三层的10行处理代码');
+			})
+			
+			/* 第四种 */
+			// new Promise(resolve => resolve(结果)) 简写
+			new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve('aaa')
+				}, 1000)
+			}).then(res => {
+				console.log(res, '第一层的10行处理代码');
+				
+				// return Promise.reject('error msg');
+				
+				throw 'error message'
+			}).then(res => {
+				console.log(res, '第二层的10行处理代码');
+				
+				return Promise.resolve(res + '222')
+			}).then(res => {
+				console.log(res, '第三层的10行处理代码');
+			}).catch(err => {
+				console.log(err);
+			})
+			
+			
+			// 请求一，请求二， 需求本身依赖两个请求
+			
+			
+		</script>
+	</body>
+</html>
