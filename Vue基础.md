@@ -173,3 +173,13 @@
 	请求后的数据处理
 	自定义的请求头
 	URL查询对象
+	
+## git
+### 连接远程仓库
+	git remote add origin https://github.com/CodePandi/supermall.git
+	git push -u origin master
+
+## 新项目
+### 划分目录结构
+### 引用css文件
+### vue.config.js && editorconfig
