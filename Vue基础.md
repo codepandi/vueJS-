@@ -178,8 +178,30 @@
 ### 连接远程仓库
 	git remote add origin https://github.com/CodePandi/supermall.git
 	git push -u origin master
+	
+### 测试数据
+	http://jsonplaceholder.typicode.com/
+	
+	/posts	100 posts
+	/comments	500 comments
+	/albums	100 albums
+	/photos	5000 photos
+	/todos	200 todos
+	/users	10 users
+	
+	GET	/posts
+	GET	/posts/1
+	GET	/posts/1/comments
+	GET	/comments?postId=1
+	GET	/posts?userId=1
+	POST	/posts
+	PUT	/posts/1
+	PATCH	/posts/1
+	DELETE	/posts/1
+
 
 ## 新项目
-### 划分目录结构
-### 引用css文件
-### vue.config.js && editorconfig
+#### 划分目录结构
+#### 引用css文件
+#### vue.config.js && editorconfig
+#### 项目的模块划分：tabbar => 路由映射关系
