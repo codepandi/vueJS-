@@ -1,10 +1,10 @@
 <template>
 	<div class="recommend">
-		<div class="recommend-item" v-for="item in recommends">
-			<a href="">
-				<img :src="item.url" alt="">
+		<div class="recommend-item" v-for="(item, index) in recommends" @click="itemClick(index)">
+			<!-- <a href=""> -->
+				<img :src="item.url" alt="" @load="imgLoad">
 				<div>00{{item.id}}</div>
-			</a>
+			<!-- </a> -->
 		</div>
 	</div>
 </template>
@@ -18,6 +18,25 @@
 				default() {
 					return []
 				}
+			}
+		},
+		data() {
+			return {
+				isLoad: false
+			}
+		},
+		methods: {
+			imgLoad() {
+				if(!this.isLoad) {
+					this.$emit('imgLoad')
+					this.isLoad = true
+				}
+			},
+			itemClick(index) {
+				this.$router.push('/detail/' + this.recommends[index].id)
+				// this.$router.push({
+					
+				// })
 			}
 		}
 	}

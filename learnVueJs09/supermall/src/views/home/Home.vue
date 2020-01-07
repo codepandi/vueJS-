@@ -9,11 +9,13 @@
 		 @scroll="contentScroll" 
 		 :pull-up-load="true" 
 		 @pullingUp="loadMore">
-			<recommend-view :recommends="recommends"></recommend-view>
+			<recommend-view :recommends="recommends"
+											@imgLoad="imgLoad"></recommend-view>
 			<tab-control :titles="['流行', '新款', '精选']"
 									 class="tab-control"
 									 @tabClick="tabClick"
-									 ref="tabControl"/>
+									 ref="tabControl"
+									 :class="{fixed: isTabFixed}"/>
 			<ul>
 				<li>1</li>
 				<li>2</li>
@@ -66,7 +68,8 @@
 				banners: [],
 				recommends: [],
 				isShowBackTop: false,
-				tabOffsetTop: 0
+				tabOffsetTop: 0,
+				isTabFixed: false
 			}
 		},
 		created() {
@@ -76,8 +79,8 @@
 		mounted() {
 			// 获取tabControl的offsetTop
 			// 所有的组件都有一个属性 $el:用于获取组件中的元素
-			console.log(this.$refs.tabControl.$el.offsetTop);
-			this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
+			// this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
+			// console.log(this.tabOffsetTop);
 		},
 		methods: {
 			/*
@@ -105,15 +108,22 @@
 			},
 			contentScroll(position) {
 				// console.log(position.y);
+				// 1.判断backTop是否显示
 				if(position.y < -50) {
 					this.isShowBackTop = true
 				} else {
 					this.isShowBackTop = false
 				}
+				
+				// 2.决定tabControl是否吸顶
 			},
 			loadMore() {
 				console.log('updata');
 				this.$refs.scroll.finishPullUp()
+			},
+			imgLoad() {
+				this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
+				console.log(this.tabOffsetTop);
 			}
 		}
 	}
@@ -129,10 +139,16 @@
 		color: #fff;
 		background-color: #ff8198;
 	}
-	.tab-control {
+	/* .tab-control {
 		position: sticky;
 		top: 44px;
-	}
+	} */
+	/* .fixed {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 44px;
+	} */
 	li {
 		height: 30px;
 	}
